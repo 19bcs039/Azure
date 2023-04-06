@@ -1,6 +1,8 @@
 from celery.schedules import crontab
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,8 +36,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'whitenoise.runserver_nostatic',
     'payments',
-    'taskSchedularApp',
-    'django_celery_results',
     'django_admin_logs',
 ]
 
@@ -175,16 +175,29 @@ ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
+# ASGI APP
+ASGI_APPLICATION = 'vision11.asgi.application'
+
 
 # RAZOR PAY DUMMY CREDENTIALS
 RAZOR_KEY_ID = "rzp_test_48HADa6gNmd6ks"
 RAZOR_KEY_SECRET = "cs3QfR8Wb6WQ7ZidL5Fr5P29"
 
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+
+
 
 # celery
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
@@ -204,3 +217,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'statics/imgs')
 # Django Admin logs
 DJANGO_ADMIN_LOGS_DELETABLE = True
 DJANGO_ADMIN_LOGS_ENABLED = True
+
+
+
+DATABASES = { 
+    'default': { 
+        'ENGINE': 'mssql', 
+        'HOST': 'vission11.database.windows.net', 
+        'PORT': 1433, 
+        'NAME': 'vission11', 
+        'USER': 'vission11', 
+        'PASSWORD': 'hks@74123', 
+        'OPTIONS': { 
+            'driver': 'ODBC Driver 18 for SQL Server', 
+            'encrypt': 'yes', 
+            'trust_server_certificate': 'no', 
+            'Connection Timeout': 30, 
+        },  
+    }, 
+}

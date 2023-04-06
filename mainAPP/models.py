@@ -42,7 +42,7 @@ class Player(models.Model):
         max_length=50
     )
 
-    player_pic = models.ImageField(
+    player_pic = models.TextField(
         null=True,
         blank=True,
         default='https://www.cricbuzz.com/a/img/v1/152x152/i1/c182026/rajat-patidar.jpg'
