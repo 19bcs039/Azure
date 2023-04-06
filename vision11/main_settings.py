@@ -1,6 +1,8 @@
 from celery.schedules import crontab
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -32,6 +34,8 @@ INSTALLED_APPS = [
     'mainAPP',
     'usermanagerAPP',
     'rest_framework',
+    'channels',
+    'chatsupportAPP',
     'whitenoise.runserver_nostatic',
     'payments',
     'taskSchedularApp',
@@ -175,16 +179,29 @@ ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
+# ASGI APP
+ASGI_APPLICATION = 'vision11.asgi.application'
+
 
 # RAZOR PAY DUMMY CREDENTIALS
 RAZOR_KEY_ID = "rzp_test_48HADa6gNmd6ks"
 RAZOR_KEY_SECRET = "cs3QfR8Wb6WQ7ZidL5Fr5P29"
 
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
+
+
 
 # celery
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['application/json']
