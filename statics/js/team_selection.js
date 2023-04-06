@@ -48,7 +48,7 @@ async function player_api_data(api_url) {
 
         for (let i = 0; i < team1_len; i++){
             if(team1_player_data[i].player_type=="WICKET KEEPER"){
-                const player_img_url = team1_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team1_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("Wk_batting")
                 const wkbatsman = document.createElement('div');
@@ -109,7 +109,7 @@ async function player_api_data(api_url) {
                 main_div.appendChild(msg_div)
             }
             else if(team1_player_data[i].player_type=="BATSMEN"){
-                const player_img_url = team1_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team1_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("batting")
                 const wkbatsman = document.createElement('div');
@@ -170,7 +170,7 @@ async function player_api_data(api_url) {
                 main_div.appendChild(msg_div)
             }
             else if(team1_player_data[i].player_type=="ALL ROUNDER"){
-                const player_img_url = team1_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team1_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("all_rounding")
                 const wkbatsman = document.createElement('div');
@@ -232,7 +232,7 @@ async function player_api_data(api_url) {
             }
 
             else if(team1_player_data[i].player_type=="BOWLER"){
-                const player_img_url = team1_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team1_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("bowling")
                 const wkbatsman = document.createElement('div');
@@ -296,7 +296,7 @@ async function player_api_data(api_url) {
 
         for (let i = 0; i < team2_len; i++){
             if(team2_player_data[i].player_type=="WICKET KEEPER"){
-                const player_img_url = team2_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team2_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("Wk_batting")
                 const wkbatsman = document.createElement('div');
@@ -357,7 +357,7 @@ async function player_api_data(api_url) {
                 main_div.appendChild(msg_div)
             }
             else if(team2_player_data[i].player_type=="BATSMEN"){
-                const player_img_url = team2_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team2_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("batting")
                 const wkbatsman = document.createElement('div');
@@ -418,7 +418,7 @@ async function player_api_data(api_url) {
                 main_div.appendChild(msg_div)
             }
             else if(team2_player_data[i].player_type=="ALL ROUNDER"){
-                const player_img_url = team2_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team2_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("all_rounding")
                 const wkbatsman = document.createElement('div');
@@ -480,7 +480,7 @@ async function player_api_data(api_url) {
             }
 
             else if(team2_player_data[i].player_type=="BOWLER"){
-                const player_img_url = team2_player_data[i].player_pic.slice(7)
+                const player_img_url = 'https:/' + team2_player_data[i].player_pic.slice(7)
                 const exact_img_url = player_img_url.replace("%3A",":/")
                 const main_div = document.getElementById("bowling")
                 const wkbatsman = document.createElement('div');

@@ -34,12 +34,8 @@ INSTALLED_APPS = [
     'mainAPP',
     'usermanagerAPP',
     'rest_framework',
-    'channels',
-    'chatsupportAPP',
     'whitenoise.runserver_nostatic',
     'payments',
-    'taskSchedularApp',
-    'django_celery_results',
     'django_admin_logs',
 ]
 
@@ -221,3 +217,22 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'statics/imgs')
 # Django Admin logs
 DJANGO_ADMIN_LOGS_DELETABLE = True
 DJANGO_ADMIN_LOGS_ENABLED = True
+
+
+
+DATABASES = { 
+    'default': { 
+        'ENGINE': 'mssql', 
+        'HOST': 'vission11.database.windows.net', 
+        'PORT': 1433, 
+        'NAME': 'vission11', 
+        'USER': 'vission11', 
+        'PASSWORD': 'hks@74123', 
+        'OPTIONS': { 
+            'driver': 'ODBC Driver 18 for SQL Server', 
+            'encrypt': 'yes', 
+            'trust_server_certificate': 'no', 
+            'Connection Timeout': 30, 
+        },  
+    }, 
+}

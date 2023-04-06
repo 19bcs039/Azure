@@ -5,12 +5,12 @@ from mainAPP.models import Match,Contest
 @receiver(pre_save, sender=Match)
 def pre_save(sender, instance, **kwargs):
     try:
-        from taskSchedularApp.tasks import ProvideMoneyUser
+        from .task_views import ProvideMoneyUser
         previous = Match.objects.get(id=instance.id)
-    except:
+    except Exception as e:
         return
     if previous.is_match_end != instance.is_match_end and instance.is_match_end == True:
-        ProvideMoneyUser.delay(instance.id)
+        ProvideMoneyUser(instance.id)
         # do celery stuff here to give price money to winners
 
 
